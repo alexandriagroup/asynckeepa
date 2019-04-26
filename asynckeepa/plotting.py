@@ -4,7 +4,7 @@ Plotting module product data returned from keepa interface module
 import datetime
 import warnings
 import numpy as np
-from keepa.interface import keepa_minutes_to_time, parse_csv
+from asynckeepa.interface import keepa_minutes_to_time, parse_csv
 
 
 def plot_product(product, keys=['AMAZON', 'USED', 'COUNT_USED', 'SALES'],
@@ -127,7 +127,7 @@ def plot_product(product, keys=['AMAZON', 'USED', 'COUNT_USED', 'SALES'],
 
     if show:
         plt.show(block=True)
-        plt.draw()        
+        plt.draw()
 
 
 def replace_invalid(arr, max_value=None):

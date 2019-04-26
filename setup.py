@@ -3,9 +3,13 @@ Setup for keepa
 """
 from setuptools import setup
 import os
+import sys
 from io import open as io_open
 
-package_name = 'keepa'
+package_name = 'asynckeepa'
+
+if sys.version_info < (3, 5, 3):
+    raise RuntimeError("asynckeepa 3.x requires Python 3.5.3+")
 
 # Get version from ./_version.py
 __version__ = None
@@ -21,24 +25,21 @@ setup(
     name=package_name,
     packages=[package_name],
     version=__version__,
-    description='Interfaces with keepa.com',
+    description='Interfaces with keepa.com (async version)',
     long_description=open(readme_file).read(),
-    author='Alex Kaszynski',
-    author_email='akascap@gmail.com',
+    author='Nicolas Baccelli',
+    author_email='nicolas.baccelli@gmail.com',
     license='Apache Software License',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: End Users/Desktop',
         'Topic :: Database :: Front-Ends',
         'License :: OSI Approved :: Apache Software License',
-        'Programming Language :: Python :: 2.7',
-        'Programming Language :: Python :: 3.4',
         'Programming Language :: Python :: 3.5',
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    url='https://github.com/akaszynski/keepa',
+    url='https://github.com/alexandriagroup/asynckeepa',
     keywords='keepa',
-    install_requires=['numpy>=1.9.3', 'requests>=2.2']
-
+    install_requires=['numpy>=1.9.3', 'aiohttp>=3.5.4']
 )
